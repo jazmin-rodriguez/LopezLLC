@@ -109,7 +109,8 @@ a {
 
 /* Shared button styling used by header and page buttons. */
 .header-cta,
-.button {
+.button,
+.language-toggle{
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -120,6 +121,26 @@ a {
   font: inherit;
   font-weight: 800;
   cursor: pointer;
+}
+
+/* Groups the language button and estimate button together in the header. */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Button that switches all website text between English and Spanish. */
+.language-toggle {
+  color: var(--brand-dark);
+  background: var(--soft);
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.language-toggle:hover {
+  color: var(--white);
+  background: var(--brand-dark);
 }
 
 /* Primary action buttons. */
@@ -483,6 +504,11 @@ textarea:focus {
 @media (max-width: 620px) {
   .site-header {
     min-height: 70px;
+  }
+
+  .language-toggle {
+    min-height: 40px;
+    padding: 0 12px;
   }
 
   .logo-mark {

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BrightCraft Painting & Remodeling</title>
+  <title>MJ Painting & Remodeling</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,48 +11,53 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="#home" aria-label="BrightCraft home">
-      <span class="logo-mark">BC</span>
+    <a class="logo" href="#home" aria-label="MJ home">
+      <span class="logo-mark">MJ</span>
       <span>
-        <strong>BrightCraft</strong>
+        <strong>MJ</strong>
         <small>Painting & Remodeling</small>
       </span>
     </a>
 
     <nav class="nav" aria-label="Main navigation">
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Free Estimate</a>
+      <a href="#services" data-i18n="navServices">Services</a>
+      <a href="#gallery" data-i18n="navGallery">Gallery</a>
+      <a href="#reviews" data-i18n="navReviews">Reviews</a>
+      <a href="#contact" data-i18n="navEstimate">Free Estimate</a>
     </nav>
 
-    <a class="header-cta" href="#contact">Get Estimate</a>
+     <div class="header-actions">
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch website language">
+        Español
+      </button>
+      <a class="header-cta" href="#contact" data-i18n="headerCta">Get Estimate</a>
+    </div>
   </header>
 
   <main>
     <section class="hero" id="home">
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <p class="eyebrow">English & Spanish speaking crew</p>
-        <h1>Painting and remodeling that makes your home feel new again.</h1>
-        <p class="hero-text">
+        <p class="eyebrow" data-i18n="heroEyebrow">English & Spanish speaking crew</p>
+        <h1 data-i18n="heroTitle">Painting and remodeling that makes your home feel new again.</h1>
+        <p class="hero-text" data-i18n="heroText">
           Interior painting, exterior painting, drywall repair, cabinets, floors,
           backsplash, pressure washing, and detailed finishing work.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="#contact">Request a Free Estimate</a>
-          <a class="button secondary" href="#services">View Services</a>
+          <a class="button primary" href="#contact" data-i18n="heroPrimary">Request a Free Estimate</a>
+          <a class="button secondary" href="#services" data-i18n="heroSecondary">View Services</a>
         </div>
       </div>
     </section>
 
     <section class="intro section">
       <div>
-        <p class="eyebrow">Who we are</p>
-        <h2>A reliable local crew for clean, careful home upgrades.</h2>
+        <p class="eyebrow" data-i18n="whoEyebrow">Who we are</p>
+        <h2 data-i18n="whoTitle">A reliable local crew for clean, careful home upgrades.</h2>
       </div>
-      <p>
-        BrightCraft Painting & Remodeling helps homeowners refresh, repair, and improve
+      <p data-i18n="whoText">
+        MJ Painting & Remodeling helps homeowners refresh, repair, and improve
         their spaces with honest communication, neat job sites, and quality workmanship.
         We explain the process clearly in English or Spanish and provide free estimates
         before work begins.
@@ -61,100 +66,100 @@
 
     <section class="section services" id="services">
       <div class="section-heading">
-        <p class="eyebrow">What we do</p>
-        <h2>Painting, repairs, and remodeling services</h2>
+        <p class="eyebrow" data-i18n="servicesEyebrow">What we do</p>
+        <h2 data-i18n="servicesTitle">Painting, repairs, and remodeling services</h2>
       </div>
 
       <div class="service-grid">
         <article class="service-card">
           <span>01</span>
-          <h3>Interior Painting</h3>
-          <p>Walls, ceilings, trim, doors, touch-ups, and complete room transformations.</p>
+          <h3 data-i18n="service1Title">Interior Painting</h3>
+          <p data-i18n="service1Text">Walls, ceilings, trim, doors, touch-ups, and complete room transformations.</p>
         </article>
         <article class="service-card">
           <span>02</span>
-          <h3>Exterior Painting</h3>
-          <p>Fresh exterior finishes that improve curb appeal and protect your home.</p>
+          <h3 data-i18n="service2Title">Exterior Painting</h3>
+          <p data-i18n="service2Text">Fresh exterior finishes that improve curb appeal and protect your home.</p>
         </article>
         <article class="service-card">
           <span>03</span>
-          <h3>Cabinet Painting</h3>
-          <p>Give kitchens, bathrooms, and built-ins a clean updated look without replacing them.</p>
+          <h3 data-i18n="service3Title">Cabinet Painting</h3>
+          <p data-i18n="service3Text">Give kitchens, bathrooms, and built-ins a clean updated look without replacing them.</p>
         </article>
         <article class="service-card">
           <span>04</span>
-          <h3>Drywall Repair</h3>
-          <p>Patch holes, repair cracks, smooth surfaces, and prep walls for paint.</p>
+          <h3 data-i18n="service4Title">Drywall Repair</h3>
+          <p data-i18n="service4Text">Patch holes, repair cracks, smooth surfaces, and prep walls for paint.</p>
         </article>
         <article class="service-card">
           <span>05</span>
-          <h3>Pressure Washing</h3>
-          <p>Clean siding, patios, driveways, fences, and exterior surfaces before painting.</p>
+          <h3 data-i18n="service5Title">Pressure Washing</h3>
+          <p data-i18n="service5Text">Clean siding, patios, driveways, fences, and exterior surfaces before painting.</p>
         </article>
         <article class="service-card">
           <span>06</span>
-          <h3>Trim & Door Painting</h3>
-          <p>Crisp edges, smooth finishes, and detailed prep for high-touch surfaces.</p>
+          <h3 data-i18n="service6Title">Trim & Door Painting</h3>
+          <p data-i18n="service6Text">Crisp edges, smooth finishes, and detailed prep for high-touch surfaces.</p>
         </article>
         <article class="service-card">
           <span>07</span>
-          <h3>Resurfacing</h3>
-          <p>Refresh worn surfaces and restore a smoother, cleaner finish.</p>
+          <h3 data-i18n="service7Title">Resurfacing</h3>
+          <p data-i18n="service7Text">Refresh worn surfaces and restore a smoother, cleaner finish.</p>
         </article>
         <article class="service-card">
           <span>08</span>
-          <h3>Floors & Backsplash</h3>
-          <p>Install and update floors and backsplash areas for a finished remodeled look.</p>
+          <h3 data-i18n="service8Title">Floors & Backsplash</h3>
+          <p data-i18n="service8Text">Install and update floors and backsplash areas for a finished remodeled look.</p>
         </article>
       </div>
     </section>
 
     <section class="section gallery-section" id="gallery">
       <div class="section-heading">
-        <p class="eyebrow">Photo gallery</p>
-        <h2>Recent project inspiration</h2>
+        <p class="eyebrow" data-i18n="galleryEyebrow">Photo gallery</p>
+        <h2 data-i18n="galleryTitle">Recent project inspiration</h2>
       </div>
 
       <div class="gallery">
         <figure class="gallery-item large">
           <img src="assets/hero-remodeling.png" alt="Fresh interior remodeling work" />
-          <figcaption>Interior refresh</figcaption>
+          <figcaption data-i18n="gallery1">Interior refresh</figcaption>
         </figure>
         <figure class="gallery-item paint">
-          <figcaption>Cabinet painting</figcaption>
+          <figcaption data-i18n="gallery2">Cabinet painting</figcaption>
         </figure>
         <figure class="gallery-item tile">
-          <figcaption>Backsplash</figcaption>
+          <figcaption data-i18n="gallery3">Backsplash</figcaption>
         </figure>
         <figure class="gallery-item floor">
-          <figcaption>Flooring</figcaption>
+          <figcaption data-i18n="gallery4">Flooring</figcaption>
         </figure>
         <figure class="gallery-item exterior">
-          <figcaption>Exterior work</figcaption>
+          <figcaption data-i18n="gallery5">Exterior work</figcaption>
         </figure>
       </div>
     </section>
 
     <section class="section reviews" id="reviews">
       <div class="section-heading">
-        <p class="eyebrow">Reviews</p>
-        <h2>What customers say</h2>
+        <p class="eyebrow" data-i18n="reviewsEyebrow">Reviews</p>
+        <h2 data-i18n="reviewsTitle">What customers say</h2>
       </div>
 
       <div class="review-grid">
         <article class="review-card">
           <div class="stars" aria-label="5 star review">★★★★★</div>
-          <p>“They painted our living room and repaired drywall before starting. The walls look smooth and the crew was very respectful.”</p>
+          <p data-i18n="review1">“They painted our living room and repaired drywall before starting. The walls look smooth and the crew was very respectful.”</p>
           <strong>Maria G.</strong>
         </article>
         <article class="review-card">
           <div class="stars" aria-label="5 star review">★★★★★</div>
-          <p>“Great communication, fair pricing, and clean work. Our cabinets look brand new.”</p>
+          <p data-i18n="review2">“Great communication, fair pricing, and clean work. Our cabinets look brand new.”</p>
           <strong>James R.</strong>
         </article>
         <article class="review-card">
           <div class="stars" aria-label="5 star review">★★★★★</div>
-          <p>“They helped us with painting, trim, and backsplash. Everything was finished on time.”</p>
+          <p data-i18n="review3">“They helped us with painting, trim, and backsplash. Everything was finished on time.”</p>
           <strong>Elena P.</strong>
         </article>
       </div>
@@ -162,75 +167,75 @@
 
     <section class="estimate-band">
       <div>
-        <p class="eyebrow">Free estimate</p>
-        <h2>Tell us what you need. We will follow up with next steps.</h2>
+        <p class="eyebrow" data-i18n="estimateEyebrow">Free estimate</p>
+        <h2 data-i18n="estimateTitle">Tell us what you need. We will follow up with next steps.</h2>
       </div>
-      <a class="button light" href="#contact">Start Request</a>
+      <a class="button light" href="#contact" data-i18n="estimateButton">Start Request</a>
     </section>
 
     <section class="section contact-section" id="contact">
       <div class="contact-copy">
-        <p class="eyebrow">Contact</p>
-        <h2>Leave your contact info and project details.</h2>
-        <p>
+        <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
+        <h2 data-i18n="contactTitle">Leave your contact info and project details.</h2>
+        <p data-i18n="contactText">
           Tell us what you want done, where the project is located, and the best way
           to reach you. We speak English and Spanish.
         </p>
 
         <div class="contact-details">
-          <p><strong>Phone:</strong> (555) 123-4567</p>
-          <p><strong>Email:</strong> hello@brightcraft.com</p>
-          <p><strong>Languages:</strong> English / Español</p>
+          <p><strong data-i18n="phoneLabel">Phone:</strong> (555) 123-4567</p>
+          <p><strong data-i18n="emailLabel">Email:</strong> hello@MJ.com</p>
+          <p><strong data-i18n="languagesLabel">Languages:</strong> English / Español</p>
         </div>
       </div>
 
       <form class="contact-form" id="estimateForm">
         <label>
-          Full name
-          <input type="text" name="name" placeholder="Your name" required />
+          <span data-i18n="nameLabel">Full name</span>
+          <input type="text" name="name" placeholder="Your name" data-i18n-placeholder="namePlaceholder" required />
         </label>
 
         <label>
           Phone number
-          <input type="tel" name="phone" placeholder="(555) 123-4567" required />
+          <span data-i18n="phoneFormLabel">Phone number</span>
         </label>
 
         <label>
-          Email address
-          <input type="email" name="email" placeholder="you@example.com" />
+          <span data-i18n="emailFormLabel">Email address</span>
+          <input type="email" name="email" placeholder="you@example.com" data-i18n-placeholder="emailPlaceholder" />
         </label>
 
         <label>
-          Service needed
+          <span data-i18n="serviceFormLabel">Service needed</span>
           <select name="service" required>
-            <option value="">Choose a service</option>
-            <option>Interior painting</option>
-            <option>Exterior painting</option>
-            <option>Cabinet painting</option>
-            <option>Drywall repair</option>
-            <option>Pressure washing</option>
-            <option>Trim & door painting</option>
-            <option>Resurfacing</option>
-            <option>Floors</option>
-            <option>Backsplash</option>
-            <option>Remodeling project</option>
+            <option value="" data-i18n="optionChoose">Choose a service</option>
+            <option data-i18n="optionInterior">Interior painting</option>
+            <option data-i18n="optionExterior">Exterior painting</option>
+            <option data-i18n="optionCabinet">Cabinet painting</option>
+            <option data-i18n="optionDrywall">Drywall repair</option>
+            <option data-i18n="optionPressure">Pressure washing</option>
+            <option data-i18n="optionTrim">Trim & door painting</option>
+            <option data-i18n="optionResurfacing">Resurfacing</option>
+            <option data-i18n="optionFloors">Floors</option>
+            <option data-i18n="optionBacksplash">Backsplash</option>
+            <option data-i18n="optionRemodeling">Remodeling project</option>
           </select>
         </label>
 
         <label>
-          What do you need or want?
-          <textarea name="message" rows="5" placeholder="Tell us about the project, rooms, timeline, colors, repairs, or questions." required></textarea>
+          <span data-i18n="messageLabel">What do you need or want?</span>
+          <textarea name="message" rows="5" placeholder="Tell us about the project, rooms, timeline, colors, repairs, or questions." data-i18n-placeholder="messagePlaceholder" required></textarea>
         </label>
 
-        <button class="button primary" type="submit">Send Estimate Request</button>
+        <button class="button primary" type="submit" data-i18n="submitButton">Send Estimate Request</button>
         <p class="form-note" id="formNote" role="status"></p>
       </form>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© 2026 BrightCraft Painting & Remodeling. All rights reserved.</p>
-    <p>Free estimates • English & Spanish</p>
+    <p>© 2026 MJ Painting & Remodeling. All rights reserved.</p>
+    <p data-i18n="footerTagline">Free estimates • English & Spanish</p>
   </footer>
 
   <script src="script.js"></script>
