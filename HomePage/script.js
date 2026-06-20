@@ -7,6 +7,9 @@ const formNote = document.querySelector("#formNote");
 // Finds the button that switches the website language.
 const languageToggle = document.querySelector("#languageToggle");
 
+// This is where estimate request emails will be sent.
+const businessEmail = "mjpaintingandmore19@gmail.com";
+
 // All the English and Spanish text used by the page.
 // The names on the left match the data-i18n attributes in index.html.
 const translations = {
@@ -198,9 +201,33 @@ estimateForm.addEventListener("submit", (event) => {
   // Stops the browser from refreshing the page.
   event.preventDefault();
 
-  // Shows a temporary message. A real website would connect this form to email,
-  // a booking tool, or a backend service before publishing.
-  formNote.textContent = translations[currentLanguage].formSuccess;
+  // Collects the visitor's answers from the form fields.
+  const formData = new FormData(estimateForm);
+  const name = formData.get("name");
+  const phone = formData.get("phone");
+  const email = formData.get("email") || "Not provided";
+  const service = formData.get("service");
+  const message = formData.get("message");
+
+  // Creates the email text that will be placed in the visitor's email app.
+  const emailBody = `
+A new estimate request was submitted from the website.
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Service needed: ${service}
+
+Project details:
+${message}
+`;
+
+  // Opens the visitor's email app with the business email, subject, and message filled in.
+  const mailtoLink = `mailto:${businessEmail}?subject=${encodeURIComponent("New estimate request from website")}&body=${encodeURIComponent(emailBody)}`;
+  window.location.href = mailtoLink;
+
+  // Shows a message on the webpage.
+  formNote.textContent = "Your email app should open with the estimate request ready to send.";
 
   // Clears the form fields after the message appears.
   estimateForm.reset();
