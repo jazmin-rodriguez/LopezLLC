@@ -7,9 +7,6 @@ const formNote = document.querySelector("#formNote");
 // Finds the button that switches the website language.
 const languageToggle = document.querySelector("#languageToggle");
 
-// This is where estimate request emails will be sent.
-const businessEmail = "mjpaintingandmore19@gmail.com";
-
 // All the English and Spanish text used by the page.
 // The names on the left match the data-i18n attributes in index.html.
 const translations = {
@@ -88,7 +85,10 @@ const translations = {
     optionRemodeling: "Remodeling project",
     submitButton: "Send Estimate Request",
     formSuccess: "Thank you! Your estimate request has been prepared. Connect this form to email or a booking tool before publishing.",
-    footerTagline: "Free estimates • English & Spanish"
+    footerTagline: "Free estimates • English & Spanish",
+    formSending: "Sending your estimate request...",
+    formSuccess: "Thank you! Your estimate request has been sent.",
+    formError: "Sorry, something went wrong. Please call or email us directly.",
   },
   es: {
     navServices: "Servicios",
@@ -165,7 +165,10 @@ const translations = {
     optionRemodeling: "Proyecto de remodelación",
     submitButton: "Enviar Solicitud de Estimado",
     formSuccess: "¡Gracias! Su solicitud de estimado está preparada. Conecte este formulario a correo electrónico o una herramienta de citas antes de publicar.",
-    footerTagline: "Estimados gratis • Inglés y español"
+    footerTagline: "Estimados gratis • Inglés y español",
+    formSending: "Enviando su solicitud de estimado...",
+    formSuccess: "¡Gracias! Su solicitud de estimado ha sido enviada.",
+    formError: "Lo sentimos, algo salió mal. Por favor llámenos o envíenos un correo directamente.",
   }
 };
 
@@ -197,38 +200,55 @@ languageToggle.addEventListener("click", () => {
 });
 
 // Runs when someone clicks the form's submit button.
-estimateForm.addEventListener("submit", (event) => {
+estimateForm.addEventListener("submit", async (event) => {
   // Stops the browser from refreshing the page.
   event.preventDefault();
 
-  // Collects the visitor's answers from the form fields.
+  // Reads all the answers from the contact form.
   const formData = new FormData(estimateForm);
+
+  // Gets each field by its name="" from the HTML form.
   const name = formData.get("name");
   const phone = formData.get("phone");
   const email = formData.get("email") || "Not provided";
   const service = formData.get("service");
   const message = formData.get("message");
 
-  // Creates the email text that will be placed in the visitor's email app.
-  const emailBody = `
-A new estimate request was submitted from the website.
+  try {
+    // Shows the visitor that the request is being sent.
+    formNote.textContent = translations[currentLanguage].formSending;
 
-Name: ${name}
-Phone: ${phone}
-Email: ${email}
-Service needed: ${service}
+    // Sends the form data to the Netlify backend function.
+    // This is what prevents the visitor's email app from opening.
+    const response = await fetch("/.netlify/functions/send-estimate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
 
-Project details:
-${message}
-`;
+      // Converts the form answers into JSON so the backend can read them.
+      body: JSON.stringify({
+        name,
+        phone,
+        email,
+        service,
+        message,
+        language: currentLanguage
+      })
+    });
 
-  // Opens the visitor's email app with the business email, subject, and message filled in.
-  const mailtoLink = `mailto:${businessEmail}?subject=${encodeURIComponent("New estimate request from website")}&body=${encodeURIComponent(emailBody)}`;
-  window.location.href = mailtoLink;
+    // If the backend returns an error, move to the catch block below.
+    if (!response.ok) {
+      throw new Error("Estimate request failed");
+    }
 
-  // Shows a message on the webpage.
-  formNote.textContent = "Your email app should open with the estimate request ready to send.";
+    // Shows the success message after the backend sends the email.
+    formNote.textContent = translations[currentLanguage].formSuccess;
 
-  // Clears the form fields after the message appears.
-  estimateForm.reset();
+    // Clears the form fields after a successful send.
+    estimateForm.reset();
+  } catch (error) {
+    // Shows an error message if the backend fails or the email cannot send.
+    formNote.textContent = translations[currentLanguage].formError;
+  }
 });
